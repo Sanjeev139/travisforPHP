@@ -16,7 +16,6 @@ before_deploy:
   - export GIT_TAG=$(awk -F "=" '/SDK_VERSION/ {print $2}' src/settings.ini)
   - export TIMESTAMP=$(date +"%Y%m%d%H%M%S")
   - git tag -a $GIT_TAG -m "Version for git tag $GIT_TAG."
-  - git push https://ef0bb5564e7f4ac23aba6ffdcf8fea17d2b3ed2a@github.com/Sanjeev139/travisforPHP.git --tags > /dev/null 2>&1
   
 deploy:
   provider: releases
