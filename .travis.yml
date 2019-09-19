@@ -16,15 +16,7 @@ before_deploy:
   - export GIT_TAG=$(awk -F "=" '/SDK_VERSION/ {print $2}' src/settings.ini)
   - export TIMESTAMP=$(date +"%Y%m%d%H%M%S")
   - git tag -a $GIT_TAG -m "Version for git tag $GIT_TAG."
-  - git push --quiet https://github.com/Sanjeev139/travisforPHP.git --tags > /dev/null 2>&1
-deploy:
-  provider: releases
-  api_key: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiI5MDA0MzEiLCJhdWQiOiJLb3VudC4xIiwiaWF0IjoxNTYzOTM4NjA2LCJzY3AiOnsia2EiOnRydWUsImtjIjp0cnVlLCJhcGkiOnRydWUsInJpcyI6dHJ1ZX19.WidWQkNcPeVRlBdu77cgsyQOSMRqzQHnzH3S70cnU38
-  file: Sdk-Ris-Php-$GIT_TAG-$TIMESTAMP.zip
-  skip_cleanup: true
-  on:
-    tags: false
-    all_branches: true
+
 notifications:
   email:
     recipients:
