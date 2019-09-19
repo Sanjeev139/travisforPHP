@@ -13,7 +13,6 @@ script:
       exit 0;
     fi
   - vendor/bin/phpdoc -d src/ -t phpdocs/
-  - ./release.sh
 before_deploy:
   - git config --global user.email "builds@travis-ci.com"
   - git config --global user.name "Travis CI"
