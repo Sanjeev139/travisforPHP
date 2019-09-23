@@ -18,6 +18,16 @@ before_deploy:
   - export TIMESTAMP=$(date +"%Y%m%d%H%M%S")
   - git tag -a $GIT_TAG -m "Version for git tag $GIT_TAG."
   - git push --quiet https://a8ba7d042c1bf8b2b24e442fd05e82f7b118d89a@github.com/Sanjeev139/travisforPHP.git --tags > /dev/null 2>&1
+  
+deploy:
+  provider: releases
+  api_key: a8ba7d042c1bf8b2b24e442fd05e82f7b118d89a
+  file: Sdk-Ris-Php-$GIT_TAG-$TIMESTAMP.zip
+  skip_cleanup: true
+  on:
+    tags: false
+    all_branches: true
+    
 
 notifications:
   email:
